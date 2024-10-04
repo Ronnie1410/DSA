@@ -13,7 +13,7 @@ ASM_DIR = $(BUILD_DIR)/asm
 
 # Compiler and flags for architectures
 CC_x86 = gcc
-CC_ARM = arm-linux-gnueabi-gcc
+CC_ARM = arm-none-eabi-gcc
 
 # CFLAGS based on architecture and bitness
 ifeq ($(ARCH), x86)
@@ -24,7 +24,9 @@ ifeq ($(ARCH), x86)
     endif
 else ifeq ($(ARCH), ARM)
     CC = $(CC_ARM)
-    CFLAGS += -march=armv7-a
+#    CFLAGS += -march=armv7-a
+#only for cortex M4 
+	CFLAGS += -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 
 endif
 
 # Object files

@@ -1,5 +1,4 @@
 #include "arrays.h"
-#include <time.h> 
 
 #define PRINT(fmt, ...) fprintf(stderr, fmt, ##__VA_ARGS__)
 
